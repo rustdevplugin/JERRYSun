@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("JERRYSun", "JERRY", "1.0.2")]
+    [Info("JERRYSun", "JERRY", "1.0.3")]
     [Description("Removes the harsh sun glare effect or the sun itself using server commands for weather. May be overriden by other weather plugins.")]
     public class JERRYSun : RustPlugin
     {
