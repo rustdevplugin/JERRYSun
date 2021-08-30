@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("JERRYSun", "JERRY", "1.0.0")]
+    [Info("JERRYSun", "JERRY", "1.0.1")]
     [Description("Removes the harsh sun glare effect or the sun itself using server commands for weather. May be overriden by other weather plugins.")]
     public class JERRYSun : RustPlugin
     {
@@ -67,6 +67,7 @@ namespace Oxide.Plugins
                 ConsoleSystem.Run(ConsoleSystem.Option.Server.Quiet(), "weather.clear_chance 1");
                 ConsoleSystem.Run(ConsoleSystem.Option.Server.Quiet(), "weather.fog 0");
                 ConsoleSystem.Run(ConsoleSystem.Option.Server.Quiet(), "weather.rain 0");
+                ConsoleSystem.Run(ConsoleSystem.Option.Server.Quiet(), "weather.thunder 0"); 
                 ConsoleSystem.Run(ConsoleSystem.Option.Server.Quiet(), "weather.atmosphere_contrast 1.2");
                 ConsoleSystem.Run(ConsoleSystem.Option.Server.Quiet(), "weather.atmosphere_directionality 0");
                 ConsoleSystem.Run(ConsoleSystem.Option.Server.Quiet(), "weather.atmosphere_mie 0");
@@ -80,4 +81,3 @@ namespace Oxide.Plugins
 
     }
 }
-
