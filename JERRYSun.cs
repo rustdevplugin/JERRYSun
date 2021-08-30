@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace Oxide.Plugins
@@ -21,6 +21,10 @@ namespace Oxide.Plugins
         {
             [JsonProperty(PropertyName = "Remove Sun")]
             public bool noSun = false;
+            
+            [JsonProperty(PropertyName = "Enable Fix")]
+            public bool fix = true;
+
         }
         protected override void LoadConfig()
         {
@@ -47,8 +51,7 @@ namespace Oxide.Plugins
             {
                 ConsoleSystem.Run(ConsoleSystem.Option.Server.Quiet(), "weather.cloud_opacity 1");
             }
-
-            else
+            else if (configData.Fix)
             {
                 ConsoleSystem.Run(ConsoleSystem.Option.Server.Quiet(), "weather.cloud_opacity 0.965");
                 ConsoleSystem.Run(ConsoleSystem.Option.Server.Quiet(), "weather.cloud_brightness 1.5");
@@ -68,6 +71,10 @@ namespace Oxide.Plugins
                 ConsoleSystem.Run(ConsoleSystem.Option.Server.Quiet(), "weather.atmosphere_directionality 0");
                 ConsoleSystem.Run(ConsoleSystem.Option.Server.Quiet(), "weather.atmosphere_mie 0");
                 ConsoleSystem.Run(ConsoleSystem.Option.Server.Quiet(), "weather.atmosphere_rayleigh 1.3");
+            }
+            else
+            {
+                return;
             }
         }
 
